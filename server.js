@@ -4,7 +4,7 @@ const db = require('./db'); // Ensure this file initializes your MongoDB connect
 const bodyParser = require('body-parser');
 const personRoutes = require('./routes/personRoutes');
 const menuRoutes = require('./routes/menuRoutes');
-
+require('dotenv').config();
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
@@ -25,7 +25,7 @@ app.get('/abc', (req, res) => {
 });
 
 // Start the server
-const PORT = 3000;
+const PORT = process.env.PORT||3000;
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
